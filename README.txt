@@ -1,6 +1,6 @@
 ==================================================================
 Analysis of the Human Activity Recognition Using Smartphones Dataset
-BCoke
+bcoke
 Coursera
 ==================================================================
 
@@ -14,7 +14,8 @@ In this project, I did the following:
 2. Extract only the mean and standard deviation for each measurement. 
 3. Name the activities in the data set.
 4. Appropriately label the data set with descriptive variable names. 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+5. From the data set in step 4, creates a second, independent tidy
+data set with the average of each variable for each activity and each subject.
 
 
 The final data set is available in the following file in the repo:
