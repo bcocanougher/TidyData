@@ -75,7 +75,7 @@ tidydataMeanSTD <- select(tidydataMeanSTD, contains("mean"), contains("std"),
                            contains("Activity"), contains("Subject"))
 
 #------------------------------------------------------------------------------------
-# Part 3:
+# Part 3 and 4:
 #
 # Name the activities in the data set.
 #
@@ -99,14 +99,21 @@ tidydataMeanSTD$Activity_ID <- factor(tidydataMeanSTD$Activity_ID,
 # with the average of each variable for each activity and each subject.
 #
 #------------------------------------------------------------------------------------
+
+#Take the averages from the larger tidy data set
 tidyaverages <- apply(tidydataMeanSTD[,1:86], 2, mean)
 
+#and rearrange the data
 tidyBySubject <- arrange(tidydataMeanSTD, Subject_ID_Number)
 
 
+#Lastly, take this set and create a new set with the average of each variable by 
+#activity and subject
+library(reshape2)
 mdata <- melt(tidyBySubject, id.vars = c("Activity_ID", "Subject_ID_Number"))
-
 tidyDataFinal <- dcast(mdata, Activity_ID + Subject_ID_Number ~ variable, mean)
 
-
+#And write this as a .txt file
+#Please note that the data is "wide", and thus looks great if read into R, but strange 
+#if viewed in a text editor unless the window is very wide.
 write.table(tidyDataFinal, file = "TidyData.txt", row.name = FALSE)
